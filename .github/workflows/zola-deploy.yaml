@@ -1,0 +1,19 @@
+name: Zola
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Deploy to gh-pages branch
+        uses: shalzz/zola-deploy-action@v0.13.0
+        env:
+          PAGES_BRANCH: gh-pages
+          TOKEN: ${{ secrets.TOKEN }}
