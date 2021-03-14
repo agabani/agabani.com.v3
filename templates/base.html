@@ -4,9 +4,31 @@
     <meta charset="utf-8">
     <title>agabani.com.v3</title>
     <link rel="stylesheet" href="{{ get_url(path="semantic-2.8.6.min.css") | safe }}"/>
+    <link rel="stylesheet" href="{{ get_url(path="style.css") | safe }}"/>
 </head>
 <body>
-    <div class="ui container">
+    <div class="ui large top fixed menu">
+        <div class="ui container">
+            <div class="header item">Agabani Consultancy Ltd</div>
+            <a class="item" href="{{ get_url(path="/") | safe }}">Home</a>
+            <a class="item" href="{{ get_url(path="activities") | safe }}">Activities</a>
+            <div class="ui simple dropdown item">
+                Company Profile
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <a class="item" href="{{ get_url(path="company-profile/the-firm") | safe }}">The Firm</a>
+                    <a class="item" href="{{ get_url(path="company-profile/mission-and-vision") | safe }}">Mission and Vision</a>
+                    <a class="item" href="{{ get_url(path="company-profile/organization") | safe }}">Organization</a>
+                    <a class="item" href="{{ get_url(path="company-profile/quality") | safe }}">Quality</a>
+                    <a class="item" href="{{ get_url(path="company-profile/values") | safe }}">Values</a>
+                </div>
+            </div>
+            <a class="item" href="{{ get_url(path="gallery") | safe }}">Gallery</a>
+            <a class="item" href="{{ get_url(path="news") | safe }}">News</a>
+            <a class="item" href="{{ get_url(path="contact") | safe }}">Contact</a>
+        </div>
+    </div>
+    <div class="ui main container">
         {% block content %} {% endblock %}
     </div>
     <script type="text/javascript" src="{{ get_url(path="jquery-3.3.1.min.js") | safe }}"></script>
