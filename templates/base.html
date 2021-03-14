@@ -1,3 +1,4 @@
+{% import "macros.html" as macros %}
 <!DOCTYPE html>
 <html lang="{{ lang | safe }}">
 <head>
@@ -28,6 +29,14 @@
             <a class="item" href="{{ get_url(path="gallery") | safe }}">Gallery</a>
             <a class="item" href="{{ get_url(path="news") | safe }}">News</a>
             <a class="item" href="{{ get_url(path="contact") | safe }}">Contact</a>
+            <div class="ui simple dropdown item">
+                {% if section is defined %}
+                    {{ macros::languages(language=lang, translations=section.translations) }}
+                {% endif %}
+                {% if page is defined %}
+                    {{ macros::languages(language=lang, translations=page.translations) }}
+                {% endif %}
+            </div>
         </div>
     </div>
     <div class="ui main container">
