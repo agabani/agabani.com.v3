@@ -35,5 +35,10 @@
     </div>
     <script type="text/javascript" src="{{ get_url(path="jquery-3.3.1.min.js") | safe }}"></script>
     <script type="text/javascript" src="{{ get_url(path="semantic-2.8.6.min.js") | safe }}"></script>
+    {% if config.extra.debug %}
+        <script>
+            console.log({{ __tera_context }})
+        </script>
+    {% endif %}
 </body>
 </html>
