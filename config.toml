@@ -5,7 +5,15 @@ base_url = "https://agabani.github.io/agabani.com.v3"
 compile_sass = true
 
 # Whether to build a search index to be used later on by a JavaScript library
-build_search_index = true
+build_search_index = false
+
+default_language = "en"
+
+generate_feed = false
+
+languages = [
+    {code = "ar", feed = false, search = false}
+]
 
 [markdown]
 # Whether to do syntax highlighting
