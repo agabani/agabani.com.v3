@@ -1,5 +1,5 @@
 +++
-title = "gallery"
+title = "Gallery"
 template = "gallery-page.html"
 +++
 
