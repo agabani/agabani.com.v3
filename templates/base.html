@@ -12,23 +12,42 @@
 <body>
     <div class="ui large top fixed menu">
         <div class="ui container">
-            <div class="header item">Agabani Consultancy Ltd</div>
-            <a class="item" href="{{ get_url(path="/") | safe }}">Home</a>
-            <a class="item" href="{{ get_url(path="activities") | safe }}">Activities</a>
+            <a class="header item" href="{{ get_url(path="@/_index.md", lang=lang) | safe }}">
+                {{ trans(key="title", lang=lang) }}
+            </a>
+            <a class="item" href="{{ get_url(path="@/activities/index.md", lang=lang) | safe }}">
+                {{ macros::get_i18n_page_title(path="activities/index.md", lang=lang) }}
+            </a>
             <div class="ui simple dropdown item">
-                Company Profile
+                {{ macros::get_i18n_section_title(path="company-profile/_index.md", lang=lang) }}
                 <i class="dropdown icon"></i>
                 <div class="menu">
-                    <a class="item" href="{{ get_url(path="company-profile/the-firm") | safe }}">The Firm</a>
-                    <a class="item" href="{{ get_url(path="company-profile/mission-and-vision") | safe }}">Mission and Vision</a>
-                    <a class="item" href="{{ get_url(path="company-profile/organization") | safe }}">Organization</a>
-                    <a class="item" href="{{ get_url(path="company-profile/quality") | safe }}">Quality</a>
-                    <a class="item" href="{{ get_url(path="company-profile/values") | safe }}">Values</a>
+                    <a class="item" href="{{ get_url(path="@/company-profile/the-firm/index.md", lang=lang) | safe }}">
+                        {{ macros::get_i18n_page_title(path="company-profile/the-firm/index.md", lang=lang) }}
+                    </a>
+                    <a class="item" href="{{ get_url(path="@/company-profile/mission-and-vision/index.md", lang=lang) | safe }}">
+                        {{ macros::get_i18n_page_title(path="company-profile/mission-and-vision/index.md", lang=lang) }}
+                    </a>
+                    <a class="item" href="{{ get_url(path="@/company-profile/organization/index.md", lang=lang) | safe }}">
+                        {{ macros::get_i18n_page_title(path="company-profile/organization/index.md", lang=lang) }}
+                    </a>
+                    <a class="item" href="{{ get_url(path="@/company-profile/quality/index.md", lang=lang) | safe }}">
+                        {{ macros::get_i18n_page_title(path="company-profile/quality/index.md", lang=lang) }}
+                    </a>
+                    <a class="item" href="{{ get_url(path="@/company-profile/values/index.md", lang=lang) | safe }}">
+                        {{ macros::get_i18n_page_title(path="company-profile/values/index.md", lang=lang) }}
+                    </a>
                 </div>
             </div>
-            <a class="item" href="{{ get_url(path="gallery") | safe }}">Gallery</a>
-            <a class="item" href="{{ get_url(path="news") | safe }}">News</a>
-            <a class="item" href="{{ get_url(path="contact") | safe }}">Contact</a>
+            <a class="item" href="{{ get_url(path="@/gallery/index.md", lang=lang) | safe }}">
+                {{ macros::get_i18n_page_title(path="gallery/index.md", lang=lang) }}
+            </a>
+            <a class="item" href="{{ get_url(path="@/news/_index.md", lang=lang) | safe }}">
+                {{ macros::get_i18n_section_title(path="news/_index.md", lang=lang) }}
+            </a>
+            <a class="item" href="{{ get_url(path="@/contact/index.md", lang=lang) | safe }}">
+                {{ macros::get_i18n_page_title(path="contact/index.md", lang=lang) }}
+            </a>
             <div class="ui simple dropdown item">
                 {% if section is defined %}
                     {{ macros::languages(language=lang, translations=section.translations) }}
