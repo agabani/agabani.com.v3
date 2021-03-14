@@ -1,3 +1,11 @@
+{% macro get_i18n_page_title(path, lang) %}
+    {{ get_page(path=path) | get(key="translations") | filter(attribute="lang", value=lang) | first | get(key="title") }}
+{% endmacro %}
+
+{% macro get_i18n_section_title(path, lang) %}
+    {{ get_section(path=path) | get(key="translations") | filter(attribute="lang", value=lang) | first | get(key="title") }}
+{% endmacro %}
+
 {% macro languages(language, translations) %}
     {% if language == "en" %}
         English
@@ -29,4 +37,4 @@
             {% endfor %}
         {% endif %}
     </div>
-{% endmacro  %}
+{% endmacro %}
