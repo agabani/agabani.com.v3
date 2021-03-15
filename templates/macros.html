@@ -6,6 +6,14 @@
     {{ get_section(path=path) | get(key="translations") | filter(attribute="lang", value=lang) | first | get(key="title") }}
 {% endmacro %}
 
+{% macro get_current_direction(lang) %}
+    {% if lang == "ar" %}
+        right
+    {% else %}
+        left
+    {% endif %}
+{% endmacro  %}
+
 {% macro get_current_language(lang) %}
     {% if lang == "en" %}
         English
