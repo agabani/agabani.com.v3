@@ -6,35 +6,35 @@
     {{ get_section(path=path) | get(key="translations") | filter(attribute="lang", value=lang) | first | get(key="title") }}
 {% endmacro %}
 
-{% macro languages(language, translations) %}
-    {% if language == "en" %}
+{% macro get_current_language(lang) %}
+    {% if lang == "en" %}
         English
-    {% elif language == "ar" %}
+    {% elif lang == "ar" %}
         العربية
     {% else %}
-        {{ language }}
+        {{ lang }}
     {% endif %}
-    <i class="dropdown icon"></i>
-    <div class="menu">
-        {% if translations | length == 0 %}
-            <a class="item" href="{{ get_url(path="/") | safe }}">
-                English
+{% endmacro %}
+
+{% macro render_available_languages(lang, translations) %}
+    {% if translations | length == 0 %}
+        <a class="item" href="{{ get_url(path="/") | safe }}">
+            English
+        </a>
+        <a class="item" href="{{ get_url(path="/ar") | safe }}">
+            العربية
+        </a>
+    {% else %}
+        {% for translation in translations %}
+            <a class="item" href="{{ translation.permalink }}">
+                {% if translation.lang == "en" %}
+                    English
+                {% elif translation.lang == "ar" %}
+                    العربية
+                {% else %}
+                    {{ translation.lang }}
+                {% endif %}
             </a>
-            <a class="item" href="{{ get_url(path="/ar") | safe }}">
-                العربية
-            </a>
-        {% else %}
-            {% for translation in translations %}
-                <a class="item" href="{{ translation.permalink }}">
-                    {% if translation.lang == "en" %}
-                        English
-                    {% elif translation.lang == "ar" %}
-                        العربية
-                    {% else %}
-                        {{ translation.lang }}
-                    {% endif %}
-                </a>
-            {% endfor %}
-        {% endif %}
-    </div>
+        {% endfor %}
+    {% endif %}
 {% endmacro %}
