@@ -5,12 +5,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <title>agabani.com.v3</title>
+    <title>{{ trans(key="title", lang=lang) }}</title>
     <link rel="stylesheet" type="text/css" href="{{ get_url(path="semantic-2.8.6.min.css") | safe }}"/>
     <link rel="stylesheet" type="text/css" href="{{ get_url(path="style.css") | safe }}"/>
 </head>
+
 <body>
-    <div class="ui large top fixed menu">
+    {# Following Menu #}
+    <div class="ui large top fixed hidden menu">
         <div class="ui container">
             <a class="header item" href="{{ get_url(path="@/_index.md", lang=lang) | safe }}">
                 {{ trans(key="title", lang=lang) }}
@@ -58,11 +60,127 @@
             </div>
         </div>
     </div>
-    <div class="ui main container">
+
+    {# Sidebar Menu #}
+    <div class="ui vertical inverted sidebar menu">
+        <a class="header item" href="{{ get_url(path="@/_index.md", lang=lang) | safe }}">
+            {{ trans(key="title", lang=lang) }}
+        </a>
+        <a class="item" href="{{ get_url(path="@/activities/index.md", lang=lang) | safe }}">
+            {{ macros::get_i18n_page_title(path="activities/index.md", lang=lang) }}
+        </a>
+        <div class="ui simple dropdown item">
+            {{ macros::get_i18n_section_title(path="company-profile/_index.md", lang=lang) }}
+            <i class="dropdown icon"></i>
+            <div class="menu">
+                <a class="item" href="{{ get_url(path="@/company-profile/the-firm/index.md", lang=lang) | safe }}">
+                    {{ macros::get_i18n_page_title(path="company-profile/the-firm/index.md", lang=lang) }}
+                </a>
+                <a class="item" href="{{ get_url(path="@/company-profile/mission-and-vision/index.md", lang=lang) | safe }}">
+                    {{ macros::get_i18n_page_title(path="company-profile/mission-and-vision/index.md", lang=lang) }}
+                </a>
+                <a class="item" href="{{ get_url(path="@/company-profile/organization/index.md", lang=lang) | safe }}">
+                    {{ macros::get_i18n_page_title(path="company-profile/organization/index.md", lang=lang) }}
+                </a>
+                <a class="item" href="{{ get_url(path="@/company-profile/quality/index.md", lang=lang) | safe }}">
+                    {{ macros::get_i18n_page_title(path="company-profile/quality/index.md", lang=lang) }}
+                </a>
+                <a class="item" href="{{ get_url(path="@/company-profile/values/index.md", lang=lang) | safe }}">
+                    {{ macros::get_i18n_page_title(path="company-profile/values/index.md", lang=lang) }}
+                </a>
+            </div>
+        </div>
+        <a class="item" href="{{ get_url(path="@/gallery/index.md", lang=lang) | safe }}">
+            {{ macros::get_i18n_page_title(path="gallery/index.md", lang=lang) }}
+        </a>
+        <a class="item" href="{{ get_url(path="@/news/_index.md", lang=lang) | safe }}">
+            {{ macros::get_i18n_section_title(path="news/_index.md", lang=lang) }}
+        </a>
+        <a class="item" href="{{ get_url(path="@/contact/index.md", lang=lang) | safe }}">
+            {{ macros::get_i18n_page_title(path="contact/index.md", lang=lang) }}
+        </a>
+        <div class="ui simple dropdown item">
+            {% if section is defined %}
+                {{ macros::languages(language=lang, translations=section.translations) }}
+            {% endif %}
+            {% if page is defined %}
+                {{ macros::languages(language=lang, translations=page.translations) }}
+            {% endif %}
+        </div>
+    </div>
+
+    {# Page Contents #}
+    <div class="pusher">
+        <div class="ui inverted vertical masthead center aligned segment">
+            <div class="ui container">
+                <div class="ui large secondary inverted pointing menu">
+                    <a class="toc item">
+                        <i class="sidebar icon"></i>
+                    </a>
+                    <a class="header item" href="{{ get_url(path="@/_index.md", lang=lang) | safe }}">
+                        {{ trans(key="title", lang=lang) }}
+                    </a>
+                    <a class="item" href="{{ get_url(path="@/activities/index.md", lang=lang) | safe }}">
+                        {{ macros::get_i18n_page_title(path="activities/index.md", lang=lang) }}
+                    </a>
+                    <div class="ui simple dropdown item">
+                        {{ macros::get_i18n_section_title(path="company-profile/_index.md", lang=lang) }}
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a class="item" href="{{ get_url(path="@/company-profile/the-firm/index.md", lang=lang) | safe }}">
+                                {{ macros::get_i18n_page_title(path="company-profile/the-firm/index.md", lang=lang) }}
+                            </a>
+                            <a class="item" href="{{ get_url(path="@/company-profile/mission-and-vision/index.md", lang=lang) | safe }}">
+                                {{ macros::get_i18n_page_title(path="company-profile/mission-and-vision/index.md", lang=lang) }}
+                            </a>
+                            <a class="item" href="{{ get_url(path="@/company-profile/organization/index.md", lang=lang) | safe }}">
+                                {{ macros::get_i18n_page_title(path="company-profile/organization/index.md", lang=lang) }}
+                            </a>
+                            <a class="item" href="{{ get_url(path="@/company-profile/quality/index.md", lang=lang) | safe }}">
+                                {{ macros::get_i18n_page_title(path="company-profile/quality/index.md", lang=lang) }}
+                            </a>
+                            <a class="item" href="{{ get_url(path="@/company-profile/values/index.md", lang=lang) | safe }}">
+                                {{ macros::get_i18n_page_title(path="company-profile/values/index.md", lang=lang) }}
+                            </a>
+                        </div>
+                    </div>
+                    <a class="item" href="{{ get_url(path="@/gallery/index.md", lang=lang) | safe }}">
+                        {{ macros::get_i18n_page_title(path="gallery/index.md", lang=lang) }}
+                    </a>
+                    <a class="item" href="{{ get_url(path="@/news/_index.md", lang=lang) | safe }}">
+                        {{ macros::get_i18n_section_title(path="news/_index.md", lang=lang) }}
+                    </a>
+                    <a class="item" href="{{ get_url(path="@/contact/index.md", lang=lang) | safe }}">
+                        {{ macros::get_i18n_page_title(path="contact/index.md", lang=lang) }}
+                    </a>
+                    <div class="ui simple dropdown item">
+                        {% if section is defined %}
+                            {{ macros::languages(language=lang, translations=section.translations) }}
+                        {% endif %}
+                        {% if page is defined %}
+                            {{ macros::languages(language=lang, translations=page.translations) }}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui text container">
+                <h1 class="ui inverted header">
+                    {{ trans(key="title", lang=lang) }}
+                </h1>
+                <h2>Take a look at our work samples.</h2>
+                <a class="ui huge primary button" href="{{ get_url(path="@/gallery/index.md", lang=lang) | safe }}">
+                    Browse gallery <i class="right arrow icon"></i>
+                </a>
+            </div>
+        </div>
+
         {% block content %} {% endblock %}
     </div>
+
     <script type="text/javascript" src="{{ get_url(path="jquery-3.3.1.min.js") | safe }}"></script>
     <script type="text/javascript" src="{{ get_url(path="semantic-2.8.6.min.js") | safe }}"></script>
+    <script type="text/javascript" src="{{ get_url(path="site.js") | safe }}"></script>
     {% if config.extra.debug %}
         <script>
             console.log({{ __tera_context }})
