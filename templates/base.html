@@ -71,52 +71,62 @@
 
     {# Sidebar Menu #}
     <div class="ui vertical inverted sidebar {{ macros::get_current_direction(lang=lang) }} menu">
-        <a class="header item" href="{{ get_url(path="@/_index.md", lang=lang) | safe }}">
-            {{ trans(key="title", lang=lang) }}
-        </a>
-        <a class="item" href="{{ get_url(path="@/activities/index.md", lang=lang) | safe }}">
-            {{ macros::get_i18n_page_title(path="activities/index.md", lang=lang) }}
-        </a>
-        <div class="ui dropdown inverted item">
-            {{ macros::get_i18n_section_title(path="company-profile/_index.md", lang=lang) }}
-            <i class="dropdown icon"></i>
-            <div class="left menu">
-                <a class="item" href="{{ get_url(path="@/company-profile/the-firm/index.md", lang=lang) | safe }}">
-                    {{ macros::get_i18n_page_title(path="company-profile/the-firm/index.md", lang=lang) }}
-                </a>
-                <a class="item" href="{{ get_url(path="@/company-profile/mission-and-vision/index.md", lang=lang) | safe }}">
-                    {{ macros::get_i18n_page_title(path="company-profile/mission-and-vision/index.md", lang=lang) }}
-                </a>
-                <a class="item" href="{{ get_url(path="@/company-profile/organization/index.md", lang=lang) | safe }}">
-                    {{ macros::get_i18n_page_title(path="company-profile/organization/index.md", lang=lang) }}
-                </a>
-                <a class="item" href="{{ get_url(path="@/company-profile/quality/index.md", lang=lang) | safe }}">
-                    {{ macros::get_i18n_page_title(path="company-profile/quality/index.md", lang=lang) }}
-                </a>
-                <a class="item" href="{{ get_url(path="@/company-profile/values/index.md", lang=lang) | safe }}">
-                    {{ macros::get_i18n_page_title(path="company-profile/values/index.md", lang=lang) }}
-                </a>
+        <div dir="auto">
+            <a class="header item" href="{{ get_url(path="@/_index.md", lang=lang) | safe }}">
+                {{ trans(key="title", lang=lang) }}
+            </a>
+            <a class="item" href="{{ get_url(path="@/activities/index.md", lang=lang) | safe }}">
+                {{ macros::get_i18n_page_title(path="activities/index.md", lang=lang) }}
+            </a>
+            <div class="ui inverted accordion">
+                <div class="item">
+                    <a class="title">
+                        {{ macros::get_i18n_section_title(path="company-profile/_index.md", lang=lang) }}
+                        <i class="dropdown icon"></i>
+                    </a>
+                    <div class="content">
+                        <a class="item" href="{{ get_url(path="@/company-profile/the-firm/index.md", lang=lang) | safe }}">
+                            {{ macros::get_i18n_page_title(path="company-profile/the-firm/index.md", lang=lang) }}
+                        </a>
+                        <a class="item" href="{{ get_url(path="@/company-profile/mission-and-vision/index.md", lang=lang) | safe }}">
+                            {{ macros::get_i18n_page_title(path="company-profile/mission-and-vision/index.md", lang=lang) }}
+                        </a>
+                        <a class="item" href="{{ get_url(path="@/company-profile/organization/index.md", lang=lang) | safe }}">
+                            {{ macros::get_i18n_page_title(path="company-profile/organization/index.md", lang=lang) }}
+                        </a>
+                        <a class="item" href="{{ get_url(path="@/company-profile/quality/index.md", lang=lang) | safe }}">
+                            {{ macros::get_i18n_page_title(path="company-profile/quality/index.md", lang=lang) }}
+                        </a>
+                        <a class="item" href="{{ get_url(path="@/company-profile/values/index.md", lang=lang) | safe }}">
+                            {{ macros::get_i18n_page_title(path="company-profile/values/index.md", lang=lang) }}
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <a class="item" href="{{ get_url(path="@/gallery/index.md", lang=lang) | safe }}">
-            {{ macros::get_i18n_page_title(path="gallery/index.md", lang=lang) }}
-        </a>
-        <a class="item" href="{{ get_url(path="@/news/_index.md", lang=lang) | safe }}">
-            {{ macros::get_i18n_section_title(path="news/_index.md", lang=lang) }}
-        </a>
-        <a class="item" href="{{ get_url(path="@/contact/index.md", lang=lang) | safe }}">
-            {{ macros::get_i18n_page_title(path="contact/index.md", lang=lang) }}
-        </a>
-        <div class="ui dropdown inverted item">
-            {{ macros::get_current_language(lang=lang) }}
-            <i class="dropdown icon"></i>
-            <div class="left menu">
-                {% if section is defined %}
-                    {{ macros::render_available_languages(lang=lang, translations=section.translations) }}
-                {% endif %}
-                {% if page is defined %}
-                    {{ macros::render_available_languages(lang=lang, translations=page.translations) }}
-                {% endif %}
+            <a class="item" href="{{ get_url(path="@/gallery/index.md", lang=lang) | safe }}">
+                {{ macros::get_i18n_page_title(path="gallery/index.md", lang=lang) }}
+            </a>
+            <a class="item" href="{{ get_url(path="@/news/_index.md", lang=lang) | safe }}">
+                {{ macros::get_i18n_section_title(path="news/_index.md", lang=lang) }}
+            </a>
+            <a class="item" href="{{ get_url(path="@/contact/index.md", lang=lang) | safe }}">
+                {{ macros::get_i18n_page_title(path="contact/index.md", lang=lang) }}
+            </a>
+            <div class="ui inverted accordion ">
+                <div class="item">
+                    <a class="title">
+                        {{ macros::get_current_language(lang=lang) }}
+                        <i class="dropdown icon"></i>
+                    </a>
+                    <div class="content">
+                        {% if section is defined %}
+                            {{ macros::render_available_languages(lang=lang, translations=section.translations) }}
+                        {% endif %}
+                        {% if page is defined %}
+                            {{ macros::render_available_languages(lang=lang, translations=page.translations) }}
+                        {% endif %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
