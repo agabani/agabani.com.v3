@@ -18,4 +18,8 @@ $(document).ready(function() {
     // initializing existing dropdowns
     $('.ui.dropdown')
         .dropdown();
+
+    // Accordion is initialized on pre-existing markup
+    $('.ui.accordion')
+        .accordion();
 });
