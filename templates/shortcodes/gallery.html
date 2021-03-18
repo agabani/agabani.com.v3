@@ -1,7 +1,13 @@
-{% for asset in page.assets -%}
-  {%- if asset is matching("[.](jpg|png)$") -%}
-    <a href="{{ get_url(path=asset) | safe }}" target="_blank">
-      <img src="{{ resize_image(path=asset, width=240, height=180, op="fill", format="auto") | safe }}" />
-    </a>
-  {%- endif %}
-{%- endfor %}
+<div class="ui small images">
+  {% for asset in page.assets -%}
+    {%- if asset is matching("[.](jpg|png)$") -%}
+      <img src="{{ resize_image(path=asset, width=240, height=180, op="fill", format="auto") | safe }}" loading="lazy" data-gallery-hash="{{ get_file_hash(path=asset) }}"/>
+      <div class="ui modal" data-gallery-hash="{{ get_file_hash(path=asset) }}">
+        <i class="close icon"></i>
+        <div class="image content">
+           <img class="image" src="{{ get_url(path=asset) | safe }}" loading="lazy" data-gallery-hash="{{ get_file_hash(path=asset) }}"/>
+        </div>
+      </div>
+    {%- endif %}
+  {%- endfor %}
+</div>
