@@ -22,4 +22,10 @@ $(document).ready(function() {
     // Accordion is initialized on pre-existing markup
     $('.ui.accordion')
         .accordion();
+
+    // Gallery modal is initialized on pre-existing markup
+    $('.ui.images img').click((e) => {
+        $(`.ui.modal[data-gallery-hash="${e.target.dataset.galleryHash}"`)
+            .modal("show");
+    });
 });
