@@ -1,4 +1,4 @@
 +++
 title = "Home"
-template = "index.html"
+template = "index-section.html"
 +++

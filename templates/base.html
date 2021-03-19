@@ -193,15 +193,7 @@
                 </div>
             </div>
 
-            <div class="ui text container">
-                <h1 class="ui inverted header">
-                    {{ trans(key="title", lang=lang) }}
-                </h1>
-                <h2>Take a look at our work samples.</h2>
-                <a class="ui huge primary button" href="{{ get_url(path="@/gallery/index.md", lang=lang) | safe }}">
-                    Browse gallery <i class="right arrow icon"></i>
-                </a>
-            </div>
+            {% block masthead %} {% endblock %}
         </div>
 
         {% block content %} {% endblock %}

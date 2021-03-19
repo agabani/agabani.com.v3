@@ -1,6 +1,6 @@
 +++
 title = "Contact"
-template = "contact.html"
+template = "generic-page.html"
 +++
 
 Agabani Consultancy Ltd.

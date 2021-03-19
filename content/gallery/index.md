@@ -1,6 +1,6 @@
 +++
 title = "Gallery"
-template = "gallery-page.html"
+template = "generic-page.html"
 +++
 
 {{ gallery() }}

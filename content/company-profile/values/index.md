@@ -2,6 +2,8 @@
 title = "Values"
 +++
 
+# Values
+
 AGABANI CONSULTANCY ltd. plan to build its status and reputation by incorporating our values in;
 
 ## Excellence.
