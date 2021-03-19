@@ -2,6 +2,8 @@
 title = "Mission and Vision"
 +++
 
+# Mission and Vision
+
 ## Vision Statement
 
 AGABANI CONSULTANCY ltd. aspires for a leading Sudanese market position by delivering world-class engineering consultancy services and upholding top-tier quality and ethical standards as the firm’s backbone of progressive growth.

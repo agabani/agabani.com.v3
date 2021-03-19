@@ -1,6 +1,6 @@
 +++
 title = "أنشطة الشركة"
-template = "activities.html"
+template = "generic-page.html"
 +++
 
 ## أ. تصميم المباني

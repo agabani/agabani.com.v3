@@ -1,6 +1,6 @@
 +++
 title = "اتصال"
-template = "contact.html"
+template = "generic-page.html"
 +++
 
 الطابق الثاني،

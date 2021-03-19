@@ -1,6 +1,6 @@
 +++
 title = "Activities"
-template = "activities.html"
+template = "generic-page.html"
 +++
 
 ## A – Buildings Design

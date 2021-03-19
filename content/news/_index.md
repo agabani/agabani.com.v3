@@ -1,6 +1,6 @@
 +++
 title = "Latest News"
 sort_by = "date"
-template = "news.html"
+template = "news-section.html"
 page_template = "news-page.html"
 +++
