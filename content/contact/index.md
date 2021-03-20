@@ -1,7 +1,9 @@
 +++
 title = "Contact"
-template = "generic-page.html"
+template = "contact-page.html"
 +++
+
+# Contact
 
 Agabani Consultancy Ltd.
 Floor Two
