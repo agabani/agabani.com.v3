@@ -1,7 +1,9 @@
 +++
 title = "اتصال"
-template = "generic-page.html"
+template = "contact-page.html"
 +++
+
+# اتصال
 
 الطابق الثاني،
 البرج 16 (مارسلاند)،

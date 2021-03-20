@@ -28,4 +28,6 @@ $(document).ready(function() {
         $(`.ui.modal[data-gallery-hash="${e.target.dataset.galleryHash}"`)
             .modal("show");
     });
+
+    $('.ui.embed').embed();
 });
