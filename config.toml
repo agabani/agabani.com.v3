@@ -24,10 +24,12 @@ highlight_code = true
 [translations.en]
 title = "Agabani Consultancy Ltd"
 map = "Map"
+latest_news = "Latest News"
 
 [translations.ar]
 title = "عجباني الاستشارية المحدودة"
 map = "خريطة"
+latest_news = "أحدث الأخبار"
 
 [extra]
 # Put all your custom variables here

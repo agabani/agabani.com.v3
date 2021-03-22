@@ -14,6 +14,29 @@
 
 {% block content %}
     <div class="ui container">
-        {{ section.content | safe }}
+        <div class="ui grid">
+            <div class="three column row">
+                <div class="column">
+                    <h1>{{ trans(key="latest_news", lang=lang) }}</h1>
+                    {% set news_section = get_section(path="news/_index.md") %}
+                    {% for page in news_section.pages %}
+                        {% set translation = page.translations | filter(attribute="lang", value=lang) | first %}
+                        <div>
+                            <a href="{{ translation.permalink }}">{{ translation.title }}</a>
+                        </div>
+                        <div>
+                            <span>{{ page.date }}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="column">
+                    {{ section.content | safe }}
+                </div>
+                <div class="column">
+                    {% block contact %} {% endblock %}
+                </div>
+            </div>
+        </div>
     </div>
+
 {% endblock content %}
