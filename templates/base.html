@@ -197,6 +197,13 @@
         </div>
 
         {% block content %} {% endblock %}
+
+        {# Footer #}
+        <div class="ui inverted vertical footer segment">
+            <div class="ui container">
+                <p>©{{ now() | date(format="%Y") }} Agabani Consultancy Ltd. All rights reserved.</p>
+            </div>
+        </div>
     </div>
 
     <script type="text/javascript" src="{{ get_url(path="jquery-3.3.1.min.js") | safe }}"></script>
